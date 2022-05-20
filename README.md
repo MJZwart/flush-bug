@@ -1,7 +1,15 @@
-# Vue 3 + Vite
+# To reproduce bug
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Follow the following steps to reproduce
 
-## Recommended IDE Setup
+- `npm install`
+- `npm run dev`
+- Go to `localhost:3000` where the app is running
+- Click on any of the two tabs
+- In the IDE (In my case VSCode) go to `Tab1.vue` or `Tab2.vue` (any will work)
+- Comment out the `console.log` in the script or uncomment it
+- Save the page and wait for Vite to reload the module.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+The following bug should appear:
+In yellow: [Vue warn]: Unhandled error during execution of scheduler flush. This is likely a Vue internals bug.
+In red: Uncaught (in promise) TypeError: parentComponent.ctx.deactivate is not a function
